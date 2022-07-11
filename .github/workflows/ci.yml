@@ -39,10 +39,10 @@ jobs:
           NEW_FILES="${NEW_FILES//$'\n'/'%0A'}"
           NEW_FILES="${NEW_FILES//$'\r'/'%0D'}"
           echo "::set-output name=newFiles::$NEW_FILES"
-#      - uses: fsbaraglia/create-an-issue@v2
-#        with:
-#          filename: .github/ISSUE_TEMPLATE.md
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          UPDATED_FILES: ${{ steps.update.outputs.updateFile }}
-#          NEW_FILES: ${{ steps.new.outputs.newFiles }}
+      - uses: JasonEtco/create-an-issue@v2
+        with:
+          filename: .github/ISSUE_TEMPLATE.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPDATED_FILES: ${{ steps.update.outputs.updateFile }}
+          NEW_FILES: ${{ steps.new.outputs.newFiles }}
